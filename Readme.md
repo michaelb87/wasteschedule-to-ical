@@ -1,4 +1,5 @@
-Sure, here is a dependency file and a README for your Flask application:
+Scrapes waste disposal schedule and serves them as ical.
+Caches is enabled and set to two hours.
 
 **requirements.txt**
 
@@ -14,7 +15,7 @@ icalendar
 
 # Flask iCalendar App
 
-This Flask application serves an iCalendar string containing waste disposal dates for Steyr, Austria.
+This Flask application serves an iCalendar string containing waste disposal dates for Aschach a.d. Steyr, Austria.
 
 ## Installation
 
