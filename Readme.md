@@ -36,6 +36,17 @@ The application serves the iCalendar string on the '/' route:
 http://localhost:5000/
 ```
 
+
+## Production
+
+copy initscript to `/etc/init.d/gunicorn.sh`
+
+`sudo chmod +x /etc/init.d/gunicorn.sh`
+
+`sudo service gunicorn start
+sudo service gunicorn stop
+sudo service gunicorn reload`
+
 ## Cache
 
 The iCalendar string is cached in an in-memory cache for 2 hours. This means that the iCalendar string will only be generated from scratch every 2 hours, reducing the load on the server and improving performance.

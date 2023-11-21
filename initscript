@@ -1,0 +1,57 @@
+#!/bin/bash
+
+### Begin init script ###
+
+# Define the name of the service
+NAME="gunicorn"
+
+# Define the path to the Gunicorn configuration file
+CONFIG="/path/to/gunicorn.conf"
+
+# Define the path to the WSGI application file
+WSGI="/path/to/wsgi.py"
+
+# Define the number of workers to start
+WORKERS=4
+
+# Define the user to run Gunicorn as
+USER="user"
+
+# Define the group to run Gunicorn as
+GROUP="group"
+
+# Start the service
+start() {
+    echo "Starting $NAME..."
+    su -c "gunicorn -c $CONFIG $WSGI" $USER &
+}
+
+# Stop the service
+stop() {
+    echo "Stopping $NAME..."
+    pkill -f -9 gunicorn
+}
+
+# Reload the service
+reload() {
+    echo "Reloading $NAME..."
+    kill -HUP `ps -ef | grep gunicorn | grep -v grep | awk '{print $2}'`
+}
+
+# Usage
+case "$1" in
+    start)
+        start
+    ;;
+    stop)
+        stop
+    ;;
+    reload)
+        reload
+    ;;
+    *)
+        echo "Usage: $NAME {start|stop|reload}"
+    ;;
+esac
+
+### End init script ###
