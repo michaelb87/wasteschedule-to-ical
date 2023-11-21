@@ -39,14 +39,11 @@ http://localhost:5000/
 
 ## Production
 
-copy initscript to `/etc/init.d/gunicorn.sh`
+copy wasteschedule.service to `/etc/systemd/system/wasteschedule.service`
 
-`sudo chmod +x /etc/init.d/gunicorn.sh`
 
-`sudo service gunicorn start
-sudo service gunicorn stop
-sudo service gunicorn reload`
-
+`sudo systemctl start wasteschedule.service`
+`sudo systemctl enable wasteschedule.service` 
 ## Cache
 
 The iCalendar string is cached in an in-memory cache for 2 hours. This means that the iCalendar string will only be generated from scratch every 2 hours, reducing the load on the server and improving performance.

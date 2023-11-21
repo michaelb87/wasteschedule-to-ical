@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn instance to serve myproject
+After=network.target
+
+[Service]
+User=one
+Group=users
+WorkingDirectory=/home/one/abfalltermine
+ExecStart=gunicorn3 --workers 1 --bind unix:wasteschedule.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
