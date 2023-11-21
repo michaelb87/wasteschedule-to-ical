@@ -1,5 +1,6 @@
-from flask import Flask, Response, cache
-from datetime import datetime
+from flask import Flask, Response
+from flask_caching import Cache
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 import requests
 import icalendar
@@ -7,9 +8,13 @@ import time
 
 app = Flask(__name__)
 
+cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
+cache.init_app(app)
+
 cache_timeout = 7200  # 2 hours in seconds
 
 def get_html():
+    print('Fetching HTML...')
     # Retrieve the data
     r = requests.get('https://www.aschach-steyr.at/Buergerservice/Abfall_Termine/Kalender')
     return r.text
@@ -32,12 +37,12 @@ def generate_ical():
         # Remove the weekday from the date string
         date_str = date_str.split(' ')[0]
 
-        date = datetime.datetime.strptime(date_str, '%d.%m.%Y')
+        date = datetime.strptime(date_str, '%d.%m.%Y')
         event = icalendar.Event()
         event.add('summary', event_str)
         event.add('location', 'Steyr, Austria')
         event.add('dtstart', date)
-        event.add('dtend', date + datetime.timedelta(hours=2))
+        event.add('dtend', date + timedelta(hours=2))
 
         events.append(event)
 
