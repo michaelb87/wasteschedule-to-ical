@@ -1,0 +1,19 @@
+# Compiled Python files
+*.pyc
+
+# Generated documentation
+docs/build/*
+
+# Database files
+db.sqlite3
+
+# Virtual environment directory
+venv/
+
+# Temporary files
+.idea/
+*.tmp
+*~
+
+# Cache files
+cache/*
