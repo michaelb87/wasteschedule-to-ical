@@ -61,7 +61,6 @@ def generate_ical():
     cal.add('version', '2.0')
     cal.add('prodid', '-//Google Inc//iCal4j 1.0//EN')
     cal.add('method', 'PUBLISH')
-    cal.add('name', 'Abfall Termine')
 
     # Add events to the calendar
     for event in events:
