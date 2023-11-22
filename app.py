@@ -42,7 +42,7 @@ def generate_ical():
         # Create an event with all-day setting
         event = icalendar.Event()
         event.add('summary', event_str)
-        event.add('location', 'Steyr, Austria')
+        event.add('location', 'Aschach an der Steyr, Austria')
         event.add('dtstart', date)
         event.add('dtend', date + timedelta(days=1))
         event.add('x-prop-allday', '1')
@@ -61,6 +61,12 @@ def generate_ical():
     cal.add('version', '2.0')
     cal.add('prodid', '-//Google Inc//iCal4j 1.0//EN')
     cal.add('method', 'PUBLISH')
+    cal.add('name', 'Abfall Termine')
+    cal.add('description', 'Abfall Termine für Aschach an der Steyr, Österreich')
+    cal.add('x-wr-calname', 'Abfall Termine')
+    cal.add('x-wr-timezone', 'Europe/Vienna')
+    cal.add('x-wr-caldesc', 'Abfall Termine für Aschach an der Steyr, Österreich')
+    cal.add('x-published-ttl', 'PT12H')
 
     # Add events to the calendar
     for event in events:
