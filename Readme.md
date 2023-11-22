@@ -1,5 +1,8 @@
-Scrapes waste disposal schedule and serves them as ical.
+Scrapes waste disposal schedule and serves them as ical.\
 Caches is enabled and set to two hours.
+
+You can use the hosted version here\
+https://mibdigitals.com/abfalltermine-aschach.ics
 
 **requirements.txt**
 
