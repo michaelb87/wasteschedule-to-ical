@@ -59,7 +59,7 @@ def generate_ical():
         # Create and add reminder
         reminder = icalendar.Alarm()
         reminder.add('action', 'DISPLAY')
-        reminder.add('trigger', date - timedelta(hours=8))
+        reminder.add('trigger', date - timedelta(hours=6))
         reminder.add('description', 'Reminder: ' + event_str)
         event.add_component(reminder)
 
