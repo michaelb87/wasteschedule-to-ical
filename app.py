@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import requests
 import icalendar
 import time
+import uuid
 
 app = Flask(__name__)
 
