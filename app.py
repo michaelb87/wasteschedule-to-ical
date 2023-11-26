@@ -50,7 +50,7 @@ def generate_ical():
         event.add('dtstamp', datetime.utcnow())
 
         # Add UID property
-        event.add('uid', str(uuid.uuid4()))  # Generate a unique UID using UUID
+        #event.add('uid', str(uuid.uuid4()))  # Generate a unique UID using UUID
 
         # Add summary, location, and other event details
         event.add('summary', event_str)
