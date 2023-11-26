@@ -41,16 +41,24 @@ def generate_ical():
 
         # Create an event with all-day setting
         event = icalendar.Event()
-        event.add('summary', event_str)
-        event.add('location', 'Aschach an der Steyr, Austria')
         event.add('dtstart', date)
         event.add('dtend', date + timedelta(days=1))
         event.add('x-prop-allday', '1')
 
-        # Create a reminder for the event on the day before at 7pm
+        # Add DTSTAMP property
+        event.add('dtstamp', datetime.utcnow())
+
+        # Add UID property
+        event.add('uid', str(uuid.uuid4()))  # Generate a unique UID using UUID
+
+        # Add summary, location, and other event details
+        event.add('summary', event_str)
+        event.add('location', 'Aschach an der Steyr, Austria')
+
+        # Create and add reminder
         reminder = icalendar.Alarm()
         reminder.add('action', 'DISPLAY')
-        reminder.add('trigger', date - timedelta(days=1, hours=19))
+        reminder.add('trigger', date - timedelta(hours=8))
         reminder.add('description', 'Reminder: ' + event_str)
         event.add_component(reminder)
 
