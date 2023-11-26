@@ -50,7 +50,7 @@ def generate_ical():
         event.add('dtstamp', datetime.utcnow())
 
         # Add UID property
-        #event.add('uid', str(uuid.uuid4()))  # Generate a unique UID using UUID
+        event.add('uid', str(uuid.uuid4()))  # Generate a unique UID using UUID
 
         # Add summary, location, and other event details
         event.add('summary', event_str)
@@ -59,7 +59,7 @@ def generate_ical():
         # Create and add reminder
         reminder = icalendar.Alarm()
         reminder.add('action', 'DISPLAY')
-        reminder.add('trigger', date - timedelta(hours=6))
+        reminder.add('trigger', '-P0DT6H0M0S')
         reminder.add('description', 'Reminder: ' + event_str)
         event.add_component(reminder)
 
