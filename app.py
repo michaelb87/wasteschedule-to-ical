@@ -71,10 +71,10 @@ def generate_ical():
     cal.add('prodid', '-//Google Inc//iCal4j 1.0//EN')
     cal.add('method', 'PUBLISH')
     cal.add('name', 'Abfall Termine')
-    cal.add('description', 'Abfall Termine für Aschach an der Steyr, Österreich')
+    cal.add('description', 'Abfall Termine für Aschach an der Steyr, Austria')
     cal.add('x-wr-calname', 'Abfall Termine')
     cal.add('x-wr-timezone', 'Europe/Vienna')
-    cal.add('x-wr-caldesc', 'Abfall Termine für Aschach an der Steyr, Österreich')
+    cal.add('x-wr-caldesc', 'Abfall Termine für Aschach an der Steyr, Austria')
     cal.add('x-published-ttl', 'PT12H')
 
     # Add events to the calendar
