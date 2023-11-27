@@ -55,6 +55,8 @@ def generate_ical():
         # Add summary, location, and other event details
         event.add('summary', event_str)
         event.add('location', 'Aschach an der Steyr, Austria')
+        event.add('status', 'CONFIRMED')
+        event.add('transp', 'TRANSPARENT')
 
         # Create and add reminder
         reminder = icalendar.Alarm()
