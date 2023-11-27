@@ -38,7 +38,7 @@ def generate_ical():
         # Remove the weekday from the date string
         date_str = date_str.split(' ')[0]
 
-        date = datetime.strptime(date_str, '%d.%m.%Y')
+        date = datetime.strptime(date_str, '%d.%m.%Y').date()
 
         # Create an event with all-day setting
         event = icalendar.Event()
@@ -59,8 +59,8 @@ def generate_ical():
         # Create and add reminder
         reminder = icalendar.Alarm()
         reminder.add('action', 'DISPLAY')
-        reminder.add('trigger', '-P0DT6H0M0S')
-        reminder.add('description', 'Reminder: ' + event_str)
+        reminder.add('trigger', timedelta(days=0, hours=-6, minutes=0, seconds=0))
+        reminder.add('description', 'This is an event reminder')
         event.add_component(reminder)
 
         events.append(event)
